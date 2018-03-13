@@ -6,10 +6,10 @@ var DllLogger = DllLogger || new (function () {
             _this.verbose = true;
             _this.enable = function () { _this.verbose = true; };
             _this.disable = function () { _this.verbose = false; };
-            _this.log = function (message) { if (_this.verbose) { console.log(_this.name + ': ' + message); } },
-                _this.info = function (message) { if (_this.verbose) { console.info(_this.name + ': ' + message); } },
-                _this.warn = function (message) { if (_this.verbose) { console.warn(_this.name + ': ' + message); } },
-                _this.error = function (message) { if (_this.verbose) { console.error(_this.name + ': ' + message); } }
+            _this.log = function (message) { if (_this.verbose) { console.log(_this.name + ': ' + message); } };
+            _this.info = function (message) { if (_this.verbose) { console.info(_this.name + ': ' + message); } };
+            _this.warn = function (message) { if (_this.verbose) { console.warn(_this.name + ': ' + message); } };
+            _this.error = function (message) { if (_this.verbose) { console.error(_this.name + ': ' + message); } };
             return _this;
         };
     };
@@ -239,8 +239,7 @@ window.dll = (function () {
         };
 
         instance.load = function (name, url) {
-
-            alert('called dll.load()');
+            
             var moduleName, fileName;
 
             //parse the url            
@@ -251,7 +250,7 @@ window.dll = (function () {
                 moduleName = name;
             }
             else {
-                moduleName = fileNameAndExt.substring(0, nameAndExt.length - ext.length);
+                moduleName = fileNameAndExt.substring(0, fileNameAndExt.length - ext.length);
             }
 
             fileName = moduleName + ext;
